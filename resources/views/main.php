@@ -16,7 +16,6 @@
         <!-- Scripts -->
         <script src="/js/angular/angular.min.js"></script>
         <script src="/js/angular/angular-messages.min.js"></script>
-        <!--<script src="js/angular/i18n/angular-locale_pt-br.js"></script>-->
         <script>
             angular.module("upcomingMovies", ["ngMessages"]);
             angular.module("upcomingMovies").controller("moviesCtrl", function ($scope, $http, $filter) {
@@ -63,7 +62,7 @@
         <div class="row">                     
             <div class="col-md-6 movie"
                 ng-class="{'selected bold': movie.selected}" 
-                ng-repeat="movie in movies | filter: search | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                ng-repeat="movie in movies | filter: search | orderBy:'-vote_average'">
                 <div class="row">    
                     <div class="col-sm-4 left image">
                         <img ng-if="movie.backdrop_path != null" src='https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{movie.backdrop_path}}'>
@@ -71,6 +70,7 @@
                     <div class="col-sm-8 left description">
                         <b>{{movie.title}} </b> 
                         <span ng-if="movie.title != movie.original_title">| {{movie.original_title}} </span>
+                        <span class="votes">{{movie.vote_average}}</span>
                         <p style="font-size: 12px;">Release date: {{movie.release_date | date:'MM/dd/yyyy'}}</p>
                         <hr ng-if="movie.overview != null">
                         <p>{{movie.overview}}</p>

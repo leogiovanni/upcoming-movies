@@ -21,6 +21,16 @@ html, body {
     padding: 30px 10px;
 }
 
+.movie .votes{
+    background: #f00;
+    border-radius: 13px;
+    color: #fff;
+    float: right;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 8px;
+}
+
 .movie .image {
     padding: 0 25px;
 }
