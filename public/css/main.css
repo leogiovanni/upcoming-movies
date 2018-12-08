@@ -1,0 +1,50 @@
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.search{
+    padding-top: 6px;
+    margin-top: 6px;
+}
+
+.table{
+    margin-top: 20px;
+}
+
+.table tr{
+    border-top: none;
+    /* border-bottom: 1px solid rgba(0,0,0,.1); */
+}
+
+.table tr td{
+    border-top: none;
+}
+
+.pagination{
+    padding: 20px 0;
+    margin: 0 auto;
+}
+
+.footer{
+    padding: 10px 0;
+    margin: 0 auto;
+    background: #f1f1f1;
+    bottom: 0;
+}
+
+.footer div p{
+    float: right;
+    margin: 0 auto;
+    margin-right: 10px;
+    margin-left: 10px;
+}
