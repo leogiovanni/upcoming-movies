@@ -60,24 +60,22 @@
             </div>
         </nav>
        
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="row">                        
-                    <div class="col-md-6"
-                        ng-class="{'selected bold': movie.selected}" 
-                        ng-repeat="movie in movies | filter: search | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                        <div class="col-sm-4 left">
-                            <img ng-if="movie.backdrop_path != null" src='https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{movie.backdrop_path}}'>
-                        </div>
-                        <div class="col-sm-8 left">
-                            <b>{{movie.title}} </b> 
-                            <span ng-if="movie.title != movie.original_title">| {{movie.original_title}} </span>
-                            <p style="font-size: 12px;">Release date: {{movie.release_date | date:'MM/dd/yyyy'}}</p>
-                            <hr ng-if="movie.overview != null">
-                            <p>{{movie.overview}}</p>
-                        </div>                                
+        <div class="row">                     
+            <div class="col-md-6 movie"
+                ng-class="{'selected bold': movie.selected}" 
+                ng-repeat="movie in movies | filter: search | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                <div class="row">    
+                    <div class="col-sm-4 left image">
+                        <img ng-if="movie.backdrop_path != null" src='https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{movie.backdrop_path}}'>
                     </div>
-                </div>
+                    <div class="col-sm-8 left description">
+                        <b>{{movie.title}} </b> 
+                        <span ng-if="movie.title != movie.original_title">| {{movie.original_title}} </span>
+                        <p style="font-size: 12px;">Release date: {{movie.release_date | date:'MM/dd/yyyy'}}</p>
+                        <hr ng-if="movie.overview != null">
+                        <p>{{movie.overview}}</p>
+                    </div>  
+                </div>                              
             </div>
         </div>
 
