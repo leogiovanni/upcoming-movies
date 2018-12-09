@@ -11,8 +11,19 @@
 |
 */
 
+use Illuminate\Http\Request;
+
+header('Access-Control-Allow-Origin: http://localhost:8000');
+header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token,Authorization');
+header('Access-Control-Allow-Credentials: true');
+
 Route::get('/', function () {
     return view('main');
+});
+
+Route::group(['middleware' => 'cors'], function() {
+   Route::get('/movies/{page}', 'MovieController@get_movies_api');
 });
 
 Auth::routes();
