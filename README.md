@@ -46,3 +46,9 @@ Two approachs was used.
 
 How to run ?
 
+- Access the root project folder and run:
+	- composer update
+	- php artisan key:generate
+	- php -S localhost:8000 -t public
+
+Link: http://localhost:8000/
