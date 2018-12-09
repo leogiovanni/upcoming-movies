@@ -13,39 +13,13 @@
         <link rel="stylesheet" text="text/css" href="/css/main.css">
         <link rel="stylesheet" text="text/css" href="/css/bootstrap/bootstrap.min.css">
 
-        <!-- Scripts -->
-        <script src="/js/angular/angular.min.js"></script>
-        <script src="/js/angular/angular-messages.min.js"></script>
-        <script>
-            angular.module("upcomingMovies", ["ngMessages"]);
-            angular.module("upcomingMovies").controller("moviesCtrl", function ($scope, $http, $filter) {
-                $scope.movies = [];
-                $scope.page   = 1;
-
-                var loadMovies = function () {
-                 $http.get("https://api.themoviedb.org/3/movie/upcoming?api_key=1f54bd990f1cdfb230adb312546d765d&language=en-US&page="+$scope.page).then(function (response) {
-                        $scope.movies = response.data.results;
-                    }, function (error){
-                         $scope.message = "Error";
-                    });
-                };
-
-                $scope.go = function (page){
-                    $scope.page = page;
-                    loadMovies();
-                };
-
-                loadMovies();
-            });
-        </script>
-
     </head>
     <body ng-controller="moviesCtrl">
         
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Movies</a>
+            <a class="navbar-brand" href="#">{{title}}</a>
               
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" ng-if="!movie">
                 <ul class="navbar-nav mr-auto">
                     <!-- <li class="nav-item">
                         <a class="nav-link disabled" href="#">Disabled</a>
@@ -58,20 +32,20 @@
                 </form>
             </div>
         </nav>
-       
-        <div class="row">                     
+
+        <div class="row" ng-if="!movie">                     
             <div class="col-md-6 movie"
                 ng-class="{'selected bold': movie.selected}" 
                 ng-repeat="movie in movies | filter: search | orderBy:'-vote_average'">
                 <div class="row">    
                     <div class="col-sm-4 left image">
-                        <img ng-if="movie.backdrop_path != null" src='https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{movie.backdrop_path}}'>
+                        <img ng-if="movie.poster_path != null" src='https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{movie.poster_path}}'>
                     </div>
                     <div class="col-sm-8 left description">
-                        <b>{{movie.title}} </b> 
+                        <b><a href='' ng-click='details(movie.id)'>{{movie.title}}</a></b> 
                         <span ng-if="movie.title != movie.original_title">| {{movie.original_title}} </span>
                         <span class="votes">{{movie.vote_average}}</span>
-                        <p style="font-size: 12px;">Release date: {{movie.release_date | date:'MM/dd/yyyy'}}</p>
+                        <p class="font-small">Release date: {{movie.release_date | date:'MM/dd/yyyy'}}</p>
                         <hr ng-if="movie.overview != null">
                         <p>{{movie.overview}}</p>
                     </div>  
@@ -79,7 +53,7 @@
             </div>
         </div>
 
-        <div class="row pagination"> 
+        <div class="row pagination" ng-if="!movie"> 
             <div class="col-sm-5 left">&nbsp;</div>
             <div class="col-sm-2 left">
                 <a href="" ng-if="page > 1" class="previous" ng-click="go(page -1)"> << Previous </a>
@@ -87,6 +61,39 @@
             </div>
             <div class="col-sm-5">&nbsp;</div>
         </div>
+
+        <div class="row details" ng-if="movie"> 
+            <div class="col-sm-2 left">&nbsp;</div>
+            <div class="col-sm-8 left">
+                <div class="row">    
+                    <div class="col-sm-3 left image">
+                        <img ng-if="movie.backdrop_path != null" src='https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{movie.backdrop_path}}'>
+                    </div>
+                    <div class="col-sm-9 left description">
+                        <span ng-if="movie.title != movie.original_title">{{movie.original_title}} </span>
+                        <hr ng-if="movie.title != movie.original_title">
+                        <p>{{movie.overview}}</p>
+                        <label ng-repeat="genre in movie.genres" class="genre">{{genre.name}}&nbsp; </label>
+                        <hr ng-if="movie.overview != null">
+                        <p class="font-small">Release date: {{movie.release_date | date:'MM/dd/yyyy'}}</p>
+                        <p class="font-small">Duration: {{movie.runtime}} min</p>
+                        <br>
+                        <a href="" ng-click="leaveDetails()"> << Voltar </a>
+                    </div>  
+                </div>   
+            </div>
+            <div class="col-sm-2">&nbsp;</div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="/js/angular/angular.min.js"></script>
+
+        <script>
+            var app = angular.module('upcomingMovies', []); 
+        </script>
+
+        <!-- Controllers -->
+        <script src="/js/controllers/moviesCtrl.js"></script>
 
         <div class="row footer"><div class="col-sm-12"><p class="right">All Rights Reserved</p></div></div>
     </body>
