@@ -5,7 +5,7 @@ app.controller("moviesCtrl", function ($scope, $http, $filter, $location) {
     $scope.movie  = null;
     $scope.page   = 1;
     $scope.key    = '1f54bd990f1cdfb230adb312546d765d';
-    $scope.localServer = 'http://localhost:8000/';
+    //$scope.host = 'http://localhost:8000/';
     $scope.host = 'http://upcoming-movies-leo.herokuapp.com/';
 
     var loadMovies = function () {

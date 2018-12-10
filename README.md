@@ -44,13 +44,14 @@ Two approachs was used.
 
 -------------------
 
-How to run ?
+How to run local ?
 
-- Access the root project folder and run:F
+- Open moviesCtrl.js and change the host
+- Access the root project folder and run:
 	- composer update
 	- php artisan key:generate
 	- php -S localhost:8000 -t public
 
 Link: http://localhost:8000/
 
-Remote link: http://upcoming-movies-leo.herokuapp.com/
+Remote link: http://upcoming-movies-leo.herokuapp.com/index.php
