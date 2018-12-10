@@ -1,0 +1,76 @@
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.search{
+    padding-top: 6px !important;
+    margin-top: 3px;
+}
+
+.movie{
+    padding: 30px 10px;
+}
+
+.movie .votes{
+    background: #f00;
+    border-radius: 13px;
+    color: #fff;
+    float: right;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 8px;
+}
+
+.movie .image {
+    padding: 0 25px;
+}
+
+.movie .description{
+    padding: 0 25px;
+}
+
+.pagination{
+    padding: 20px 0 60px 0;
+    margin: 0 auto;
+}
+
+.next {
+    float: right;
+    margin-right: 10px;
+}
+
+.previous{
+    float: left;
+    margin-left: 10px;
+}
+
+.details{
+    padding: 20px 10px;
+
+}
+
+.genre{
+    font-size: 13px;
+    color: #999;
+}
+
+.font-small{
+    font-size: 12px;
+}
+
+@media (max-width: 600px) {
+    .movie{
+        padding: 20px 10px;
+    }
+
+    .description{
+        margin-top: 10px;
+        padding: 0 25px;
+    }
+}
