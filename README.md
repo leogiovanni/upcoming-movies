@@ -14,15 +14,25 @@
 Steps to construct the architecture
 
 1 - composer create-project laravel/laravel upcoming-movies — prefer-dist
+
 2 - composer update
+
 3 - php artisan key:generate
+
 4 - Create a mysql database called movies
+
 5 - Update dabatase infos in .env
+
 6 - php artisan make:auth
+
 7 - php artisan migrate
+
 8 - composer require symfony/psr-http-message-bridge
+
 9 - composer require barryvdh/laravel-cors 
+
 10 - php artisan vendor:publish --provider="Barryvdh\Cors\ServiceProvider"
+
 11 - php -S localhost:8000 -t public (RUN THE APPLICATION)
 
 OBS 1: Steps 4 and 5 are used to create the authentication functionality.
