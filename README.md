@@ -28,7 +28,7 @@ Steps to construct the architecture
 OBS 1: Steps 4 and 5 are used to create the authentication functionality.
 OBS 2: The architecture approach used was not the best one, far from that, but the idea was construct a full application using just one project, so the backend I used Laravel and the frontend I used Angular.
 
-Difficults: I started the project using the complete Laravel. It has php pages and the way that it rander the page is different from Angular, so I had to change the php pages and used the Laravel just to create the services to provide the data. Another point is: the SINGLE PAGE APPLICATION. I tried to use the Angular directive for routes the pages, but with the Laravel, I didn't know how to access the pages and if the page must be html or could be php, so I used another way (hidding some parts depending where the user clicked), to keep the application in a SINGLE PAGE.
+Difficults: I started the project using the complete Laravel (MVC). It has php pages and the way that it render the page is different from Angular, so I had to change the php pages and used the Laravel just to create the service to provide the data. Another point is: the SINGLE PAGE APPLICATION. I tried to use the Angular directive for route the pages, but with the Laravel, I didn't know how to access the pages and if the page must be html or could be php, so I used another way (hidding some parts depending where the user clicked), to keep the application in a SINGLE PAGE.
 
 -------------------
 
