@@ -69,3 +69,5 @@ How to run local ?
 GitHub: https://github.com/leogiovanni/upcoming-movies
 
 Remote link: http://upcoming-movies-leo.herokuapp.com/index.php
+
+Pull Request: https://github.com/leogiovanni/upcoming-movies/pull/1
