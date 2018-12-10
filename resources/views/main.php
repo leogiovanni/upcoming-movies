@@ -94,8 +94,6 @@
 
         <!-- Controllers -->
         <script src="/js/controllers/moviesCtrl.js"></script>
-
-        <div class="row footer"><div class="col-sm-12"><p class="right">All Rights Reserved</p></div></div>
     </body>
 </html>
 
