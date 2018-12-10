@@ -52,6 +52,10 @@ How to run local ?
 	- php artisan key:generate
 	- php -S localhost:8000 -t public
 
-Link: http://localhost:8000/
+- Link: http://localhost:8000/
+
+-------------------
+
+GitHub: https://github.com/leogiovanni/upcoming-movies
 
 Remote link: http://upcoming-movies-leo.herokuapp.com/index.php
